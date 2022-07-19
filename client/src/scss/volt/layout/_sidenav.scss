@@ -170,10 +170,11 @@
     background-color: $bg-sidebar;
     &::after {
       background-image: none;
-      content: '\f054';
-      font-family: $font-awesome-5;
-      font-size: $font-size-sm;
+      // background-image: url(../../../assets/img/icons/arrow.svg);
+      font-family: 'Font Awesome 5 Solid';
       font-weight: 900;
+      content: '\f054';
+      font-size: $font-size-sm;
       height: 1.25rem;
       width: 0.5rem;
     }

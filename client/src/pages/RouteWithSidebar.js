@@ -10,8 +10,6 @@ import { Route, Routes } from 'react-router-dom';
 import DashboardOverview from './dashboard/DashboardOverview';
 
 const RouteWithSidebar = ({ path, element }) => {
-  console.log(path, element);
-
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -36,10 +34,7 @@ const RouteWithSidebar = ({ path, element }) => {
       <Sidebar />
       <main className="content">
         <Navbar />
-        {/* <DashboardOverview /> */}
-        {/* <Routes>
-          <Route path="/" element={<DashboardOverview />} />
-        </Routes> */}
+
         <Footer />
       </main>
     </>
