@@ -97,7 +97,7 @@ export default (props = {}) => {
         </Navbar.Toggle>
       </Navbar>
       <CSSTransition timeout={300} in={show} classNames="sidebar-transition">
-        <SimpleBar className={`collapse ${showClass} sidebar d-md-block bg-primary text-white`}>
+        <SimpleBar className={`collapse ${showClass} sidebar d-md-block bg-gray-800 text-white`}>
           <div className="sidebar-inner px-4 pt-3">
             <div className="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
               <div className="d-flex align-items-center">
@@ -155,7 +155,7 @@ export default (props = {}) => {
                 icon={faChartPie}
               />
 
-              <Dropdown.Divider className="my-3 border-indigo" />
+              <Dropdown.Divider className="my-3 " />
 
               <CollapsableNavItem eventKey="documentation/" title="Getting Started" icon={faBook}>
                 <NavItem title="Overview" link={Routes.DocsOverview.path} />
@@ -185,10 +185,7 @@ export default (props = {}) => {
                 <NavItem title="Toasts" link={Routes.Toasts.path} />
                 <NavItem title="Tooltips" link={Routes.Tooltips.path} />
               </CollapsableNavItem>
-              <NavItem external title="Themesberg" link="https://themesberg.com" target="_blank" image={ThemesbergLogo} />
-              <Button as={Link} to={Routes.Upgrade.path} variant="secondary" className="upgrade-to-pro">
-                <FontAwesomeIcon icon={faRocket} className="me-1" /> Upgrade to Pro
-              </Button>
+              <NavItem external title="Hassuu" link="https://themesberg.com" target="_blank" image={ThemesbergLogo} />
             </Nav>
           </div>
         </SimpleBar>

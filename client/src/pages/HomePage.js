@@ -10,9 +10,8 @@ const HomePage = () => {
     <>
       <Routes>
         {/* pages */}
-        <Route path="/" element={<Test />} />
-        <Route path="/overview" element={<RouteWithSidebar path="overview" element={DashboardOverview} />} />
-        {/* <Route path={Routers.DashboardOverview.path} element={DashboardOverview} /> */}
+        {/* <Route path="/" element={<Test />} /> */}
+        <Route path="/" element={<RouteWithSidebar />} />
       </Routes>
     </>
   );

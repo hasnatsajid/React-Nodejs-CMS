@@ -5,7 +5,9 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Preloader from '../components/Preloader';
 
-import Routes from '../routes';
+// import Routes from '../routes';
+import { Route, Routes } from 'react-router-dom';
+import DashboardOverview from './dashboard/DashboardOverview';
 
 const RouteWithSidebar = ({ path, element }) => {
   console.log(path, element);
@@ -28,7 +30,20 @@ const RouteWithSidebar = ({ path, element }) => {
     localStorage.setItem('settingsVisible', !showSettings);
   };
 
-  return <h1>router</h1>;
+  return (
+    <>
+      <Preloader show={loaded ? false : true} />
+      <Sidebar />
+      <main className="content">
+        <Navbar />
+        {/* <DashboardOverview /> */}
+        {/* <Routes>
+          <Route path="/" element={<DashboardOverview />} />
+        </Routes> */}
+        <Footer />
+      </main>
+    </>
+  );
   //   render={(props) => (
   //     <>
   //       {/* <Preloader show={loaded ? false : true} /> */}
