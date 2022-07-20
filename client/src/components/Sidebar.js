@@ -121,8 +121,8 @@ export default (props = {}) => {
               <NavItem title="Categories" link={Routes.Category.path} icon={faChartPie} />
               <NavItem title="Posts" icon={faHandHoldingUsd} link={Routes.Post.path} />
               <CollapsableNavItem eventKey="posts/" title="Posts" icon={faBook}>
-                <NavItem title="GET" link={Routes.DocsOverview.path} />
-                <NavItem title="Create" link={Routes.DocsDownload.path} />
+                <NavItem title="GET" link={Routes.Post.get} />
+                <NavItem title="Create" link={Routes.Post.create} />
                 <NavItem title="Update" link={Routes.DocsQuickStart.path} />
                 <NavItem title="Delete" link={Routes.DocsLicense.path} />
               </CollapsableNavItem>
