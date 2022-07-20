@@ -13,6 +13,7 @@ import Test from '../components/Test';
 import Categories from '../components/Categories';
 import Posts from '../components/Posts';
 import NotFound from './NotFound';
+import Settings from '../components/Settings';
 
 const HomePage = () => {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,7 @@ const HomePage = () => {
           {/* pages */}
           {/* <Route path="/" element={<RouteWithSidebar />} /> */}
           <Route path="/categories" element={<Categories />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="/posts/*" element={<Posts />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>

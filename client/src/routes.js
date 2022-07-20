@@ -1,8 +1,8 @@
 export const Routes = {
   // pages
   Presentation: { path: '/' },
-  Category: { path: '/categories' },
-  Post: { path: '/posts', get: '/posts', create: '/posts/new' },
+  Category: { path: '/categories', get: '/categories', create: '/categories/new', update: '/categories/update/:id', delete: '/categories/delete/:id' },
+  Post: { path: '/posts', get: '/posts', create: '/posts/new', update: '/posts/update/:id', delete: '/posts/delete/:id' },
   DashboardOverview: { path: '/overview' },
   Transactions: { path: '/transactions' },
   Settings: { path: '/settings' },

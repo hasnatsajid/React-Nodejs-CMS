@@ -118,13 +118,18 @@ export default (props = {}) => {
             <Nav className="flex-column pt-3 pt-md-0">
               <NavItem title="Volt React" link={Routes.Presentation.path} image={ReactHero} />
 
-              <NavItem title="Categories" link={Routes.Category.path} icon={faChartPie} />
-              <NavItem title="Posts" icon={faHandHoldingUsd} link={Routes.Post.path} />
-              <CollapsableNavItem eventKey="posts/" title="Posts" icon={faBook}>
+              {/* <NavItem title="Categories" link={Routes.Category.path} icon={faChartPie} /> */}
+              <CollapsableNavItem eventKey="/categories" title="Categories" icon={faChartPie}>
+                <NavItem title="GET" link={Routes.Category.get} />
+                <NavItem title="Create" link={Routes.Category.create} />
+                <NavItem title="Update" link={Routes.Category.update} />
+                <NavItem title="Delete" link={Routes.Category.delete} />
+              </CollapsableNavItem>
+              <CollapsableNavItem eventKey="/posts" title="Posts" icon={faBook}>
                 <NavItem title="GET" link={Routes.Post.get} />
                 <NavItem title="Create" link={Routes.Post.create} />
-                <NavItem title="Update" link={Routes.DocsQuickStart.path} />
-                <NavItem title="Delete" link={Routes.DocsLicense.path} />
+                <NavItem title="Update" link={Routes.Post.update} />
+                <NavItem title="Delete" link={Routes.Post.delete} />
               </CollapsableNavItem>
               <NavItem external title="Messages" link="https://demo.themesberg.com/volt-pro-react/#/messages" target="_blank" badgeText="Pro" icon={faInbox} />
               <NavItem title="Settings" icon={faCog} link={Routes.Settings.path} />
