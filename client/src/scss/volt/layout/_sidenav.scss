@@ -26,16 +26,16 @@
     // border: $border-width solid transparent;
     &.active {
       & > .nav-link {
-        color: $light;
+        color: $white;
         background-color: #374151;
         // border: $border-width solid lighten($dark, 20%);
       }
     }
     .nav-link {
-      color: $light;
+      color: $white;
       //   border: $border-width solid $dark;
       &:hover {
-        color: $light;
+        color: $white;
         background-color: #374151;
       }
       &.active {
@@ -75,7 +75,7 @@
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 0.1rem rgba(#4c5680, 0.2);
+      // box-shadow: 0 0 0 0.1rem rgba(#4c5680, 0.2);
     }
   }
   .nav-link.active {

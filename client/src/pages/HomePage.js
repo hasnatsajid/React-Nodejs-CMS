@@ -44,8 +44,14 @@ const HomePage = () => {
           {/* pages */}
           {/* <Route path="/" element={<RouteWithSidebar />} /> */}
           <Route path="/categories" element={<Categories />} />
+          <Route path="/categories/new" element={<Categories />} />
+          <Route path="/categories/update/:id" element={<Categories />} />
+          <Route path="/categories/delete/:id" element={<Categories />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/posts/*" element={<Posts />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/posts/new" element={<Posts />} />
+          <Route path="/posts/update/:id" element={<Posts />} />
+          <Route path="/posts/delete/:id" element={<Posts />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
         <Footer />
