@@ -4,6 +4,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBoxOpen, faCommentDots, faFileAlt, faPlus, faRocket } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, Dropdown, Form, Card } from '@themesberg/react-bootstrap';
 
+import Swal from 'sweetalert2';
+
+import { httpGetCategories } from '../hooks/requests';
+
+function onAddingCategory() {
+  const categories = httpGetCategories();
+  console.log(categories);
+
+  Swal.fire({
+    title: 'Success!',
+    text: 'Category has been added!',
+    icon: 'success',
+    confirmButtonText: 'Cool',
+  });
+
+  // return false;
+}
+
 function createCategory() {
   return (
     <>
@@ -34,25 +52,19 @@ function createCategory() {
           {/* <GeneralInfoForm /> */}
           <Card border="light" className="bg-white shadow-sm mb-4">
             <Card.Body>
-              <h5 className="mb-4">Create Category</h5>
+              <h5 className="mb-4">Category Information</h5>
               <Form>
                 <Row>
                   <Col md={6} className="mb-3">
                     <Form.Group id="firstName">
                       <Form.Label>Category Name</Form.Label>
-                      <Form.Control required type="text" placeholder="Enter your first name" />
-                    </Form.Group>
-                  </Col>
-                  <Col md={6} className="mb-3">
-                    <Form.Group id="lastName">
-                      <Form.Label>Last Name</Form.Label>
-                      <Form.Control required type="text" placeholder="Also your last name" />
+                      <Form.Control required type="text" placeholder="Enter the category" />
                     </Form.Group>
                   </Col>
                 </Row>
 
                 <div className="mt-3">
-                  <Button variant="primary" type="submit">
+                  <Button variant="primary" type="submit" onClick={onAddingCategory}>
                     Add Category
                   </Button>
                 </div>

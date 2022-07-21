@@ -18,6 +18,6 @@ app.use(morgan('combined'));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.use(categoryRouter);
+app.use('/categories', categoryRouter);
 
 module.exports = app;

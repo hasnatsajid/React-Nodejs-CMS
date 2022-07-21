@@ -3,9 +3,8 @@ import { useLocation, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBoxOpen, faCommentDots, faFileAlt, faPlus, faRocket } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, Dropdown, Form, Card } from '@themesberg/react-bootstrap';
-import { GeneralInfoForm } from './Forms';
 
-function createCategory() {
+function createPost() {
   return (
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
