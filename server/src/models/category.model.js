@@ -15,6 +15,8 @@ async function addNewCategory(data) {
       },
       { upsert: true }
     );
+
+    return { category: data.category };
   } catch (err) {
     console.error(`Could not save planet ${err}`);
   }

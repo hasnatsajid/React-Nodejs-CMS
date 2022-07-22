@@ -1,13 +1,15 @@
 const { getAllCategories, addNewCategory } = require('../../models/category.model');
 
-function httpGetAllCategories(req, res) {
-  return res.status(200).json(getAllCategories());
+async function httpGetAllCategories(req, res) {
+  const categories = await getAllCategories();
+  return res.status(200).json(categories);
 }
 
-function httpAddNewCategory(req, res) {
+async function httpAddNewCategory(req, res) {
   const category = req.body;
-
-  return res.status(200).json(category);
+  const response = await addNewCategory(category);
+  console.log(response);
+  return res.status(201).json({ message: 'Category has been added' });
 }
 
 module.exports = {
