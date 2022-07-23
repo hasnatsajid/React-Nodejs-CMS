@@ -42,7 +42,6 @@ const HomePage = () => {
         <Navbar />
         <Routes>
           {/* pages */}
-          {/* <Route path="/" element={<RouteWithSidebar />} /> */}
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/new" element={<Categories />} />
           <Route path="/categories/update/:id" element={<Categories />} />
