@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Buttons from './components/Buttons';
+import Editor from './components/Editor';
 import Forms from './components/Forms';
 import Layout from './components/Layout';
 import Modals from './components/Modals';
@@ -18,6 +19,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Overview />} />
+          <Route path="/posts/new" element={<Editor />} />
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/bootstrap-tables" element={<Tables />} />
