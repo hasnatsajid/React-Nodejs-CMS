@@ -282,7 +282,7 @@ export const RankingWidget = () => {
             </h6>
           </div>
           <div>
-            <Card.Link href="#" className="text-primary fw-bold">
+            <Card.Link href="/#" className="text-primary fw-bold">
               #755 <FontAwesomeIcon icon={faChartLine} className="ms-2" />
             </Card.Link>
           </div>

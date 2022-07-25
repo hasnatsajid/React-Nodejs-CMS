@@ -9,6 +9,7 @@
     "install": "npm install --prefix server && npm install --prefix client",
     "server": "npm run start --prefix server",
     "client": "npm start --prefix client",
+    "xclient": "npm start --prefix xclient",
     "deploy": "npm run build --prefix client && npm start --prefix server",
     "watch": "npm run server & npm run client"
   },

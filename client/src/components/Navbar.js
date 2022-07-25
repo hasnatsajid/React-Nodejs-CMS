@@ -69,7 +69,7 @@ export default (props) => {
               </Dropdown.Toggle>
               <Dropdown.Menu className="dashboard-dropdown notifications-dropdown dropdown-menu-lg dropdown-menu-center mt-2 py-0">
                 <ListGroup className="list-group-flush">
-                  <Nav.Link href="#" className="text-center text-primary fw-bold border-bottom border-light py-3">
+                  <Nav.Link href="/#" className="text-center text-primary fw-bold border-bottom border-light py-3">
                     Notifications
                   </Nav.Link>
 

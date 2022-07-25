@@ -101,22 +101,22 @@ export default (props = {}) => {
           <div className="sidebar-inner px-4 pt-3">
             <div className="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
               <div className="d-flex align-items-center">
-                <div className="user-avatar lg-avatar me-4">
+                <div className="avatar-lg me-4">
                   <Image src={ProfilePicture} className="card-img-top rounded-circle border-white" />
                 </div>
                 <div className="d-block">
-                  <h6>Hi, Jane</h6>
-                  <Button as={Link} variant="secondary" size="xs" to={Routes.Signin.path} className="text-dark">
+                  <h5 className="mb-3">Hi, Jane</h5>
+                  <Button as={Link} variant="secondary" size="sm" to={Routes.Signin.path} className="d-inline-flex align-items-center">
                     <FontAwesomeIcon icon={faSignOutAlt} className="me-2" /> Sign Out
                   </Button>
                 </div>
               </div>
               <Nav.Link className="collapse-close d-md-none" onClick={onCollapse}>
-                <FontAwesomeIcon icon={faTimes} />
+                <FontAwesomeIcon icon={faTimes} size="xl" />
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="Volt React" link={Routes.Presentation.path} image={ReactHero} />
+              <NavItem title="Hassuu React" link={Routes.Presentation.path} image={ReactHero} />
 
               {/* <NavItem title="Categories" link={Routes.Category.path} icon={faChartPie} /> */}
               <CollapsableNavItem eventKey="/categories" title="Categories" icon={faChartPie}>
@@ -133,50 +133,13 @@ export default (props = {}) => {
               </CollapsableNavItem>
               <NavItem external title="Messages" link="https://demo.themesberg.com/volt-pro-react/#/messages" target="_blank" badgeText="Pro" icon={faInbox} />
               <NavItem title="Settings" icon={faCog} link={Routes.Settings.path} />
-              <NavItem
-                external
-                title="Calendar"
-                link="https://demo.themesberg.com/volt-pro-react/#/calendar"
-                target="_blank"
-                badgeText="Pro"
-                icon={faCalendarAlt}
-              />
-              <NavItem external title="Map" link="https://demo.themesberg.com/volt-pro-react/#/map" target="_blank" badgeText="Pro" icon={faMapPin} />
 
               <CollapsableNavItem eventKey="tables/" title="Tables" icon={faTable}>
                 <NavItem title="Bootstrap Table" link={Routes.BootstrapTables.path} />
               </CollapsableNavItem>
 
-              <CollapsableNavItem eventKey="examples/" title="Page Examples" icon={faFileAlt}>
-                <NavItem title="Sign In" link={Routes.Signin.path} />
-                <NavItem title="Sign Up" link={Routes.Signup.path} />
-                <NavItem title="Forgot password" link={Routes.ForgotPassword.path} />
-                <NavItem title="Reset password" link={Routes.ResetPassword.path} />
-                <NavItem title="Lock" link={Routes.Lock.path} />
-                <NavItem title="404 Not Found" link={Routes.NotFound.path} />
-                <NavItem title="500 Server Error" link={Routes.ServerError.path} />
-              </CollapsableNavItem>
-
-              <NavItem
-                external
-                title="Plugins"
-                link="https://demo.themesberg.com/volt-pro-react/#/plugins/datatable"
-                target="_blank"
-                badgeText="Pro"
-                icon={faChartPie}
-              />
-
               <Dropdown.Divider className="my-3 " />
 
-              <CollapsableNavItem eventKey="documentation/" title="Getting Started" icon={faBook}>
-                <NavItem title="Overview" link={Routes.DocsOverview.path} />
-                <NavItem title="Download" link={Routes.DocsDownload.path} />
-                <NavItem title="Quick Start" link={Routes.DocsQuickStart.path} />
-                <NavItem title="License" link={Routes.DocsLicense.path} />
-                <NavItem title="Folder Structure" link={Routes.DocsFolderStructure.path} />
-                <NavItem title="Build Tools" link={Routes.DocsBuild.path} />
-                <NavItem title="Changelog" link={Routes.DocsChangelog.path} />
-              </CollapsableNavItem>
               <NavItem external title="Hassuu" link="https://themesberg.com" target="_blank" image={ThemesbergLogo} />
             </Nav>
           </div>

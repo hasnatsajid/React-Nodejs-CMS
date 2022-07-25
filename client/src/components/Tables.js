@@ -85,7 +85,7 @@ export const PageTrafficTable = () => {
     return (
       <tr>
         <td>
-          <Card.Link href="#" className="text-primary fw-bold">
+          <Card.Link href="/#" className="text-primary fw-bold">
             {id}
           </Card.Link>
         </td>
@@ -146,7 +146,7 @@ export const RankingTable = () => {
     return (
       <tr>
         <td className="border-0">
-          <Card.Link href="#" className="d-flex align-items-center">
+          <Card.Link href="/#" className="d-flex align-items-center">
             <Image src={countryImage} className="image-small rounded-circle me-2" />
             <div>
               <span className="h6">{country}</span>

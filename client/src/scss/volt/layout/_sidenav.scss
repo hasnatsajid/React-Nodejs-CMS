@@ -52,7 +52,7 @@
   .nav-link {
     font-size: $font-size-base;
     vertical-align: middle;
-    padding: 0.55rem 0.75rem;
+    padding: 0.5rem 1rem;
     @include border-radius($border-radius);
 
     .sidebar-icon {

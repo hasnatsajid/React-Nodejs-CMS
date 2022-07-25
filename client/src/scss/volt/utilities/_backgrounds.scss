@@ -42,6 +42,6 @@
 
 .bg-gray-800 {
   --bs-bg-opacity: 1;
-  background-color: rgba(31, 41, 55, var(--bs-bg-opacity)) !important;
-  background-color: rgba(#1f2937, var(--bs-bg-opacity)) !important;
+  background-color: #1f2937 !important;
+  // background-color: rgba(#1f2937, var(--bs-bg-opacity)) !important;
 }
