@@ -118,8 +118,13 @@ const Sidebar = () => {
                 <span className="sidebar-text">Dashboard</span>
               </Link>
             </li>
-            <li className="nav-item" onClick={togglePosts}>
-              <span className="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#submenu-app">
+            <li className="nav-item">
+              <span
+                className="nav-link collapsed d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse"
+                data-bs-target="#submenu-app"
+                onClick={togglePosts}
+              >
                 <span>
                   <span className="sidebar-icon">
                     <svg className="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -255,8 +260,13 @@ const Sidebar = () => {
                 </span>
               </Link>
             </li>
-            <li className="nav-item" onClick={toggleTables}>
-              <span className="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#submenu-app">
+            <li className="nav-item">
+              <span
+                className="nav-link collapsed d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse"
+                data-bs-target="#submenu-app"
+                onClick={toggleTables}
+              >
                 <span>
                   <span className="sidebar-icon">
                     <svg className="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -291,11 +301,12 @@ const Sidebar = () => {
               </div>
             </li>
 
-            <li className="nav-item" onClick={toggleComponents}>
+            <li className="nav-item">
               <span
                 className="nav-link collapsed d-flex justify-content-between align-items-center"
                 data-bs-toggle="collapse"
                 data-bs-target="#submenu-components"
+                onClick={toggleComponents}
               >
                 <span>
                   <span className="sidebar-icon">
