@@ -1,23 +1,29 @@
 import DateTime from 'react-datetime';
 import './editor.css';
-// import 'react-datetime/css/react-datetime.css';
+
+import '@toast-ui/editor/dist/toastui-editor.css';
+import { Editor as TEditor } from '@toast-ui/react-editor';
 
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const Editor = () => {
+  const postHandler = (e) => {
+    e.preventDefault();
+    console.log('doen');
+  };
   return (
     <>
       <div className="row mt-5">
         <div className="col-12 col-xl-8">
           <div className="card card-body border-0 shadow mb-4">
-            <h2 className="h5 mb-4">General information</h2>
-            <form>
+            <h2 className="h5 mb-4">Post information</h2>
+            <form onSubmit={postHandler}>
               <div className="row">
                 <div className="col-md-6 mb-3">
                   <div>
                     <label htmlFor="first_name">Category</label>
-                    <input className="form-control" id="first_name" type="text" placeholder="Enter your first name" required />
+                    <input className="form-control" id="first_name" type="text" placeholder="Enter post's category" required />
                   </div>
                 </div>
                 <div className="col-md-6 mb-3">
@@ -32,47 +38,22 @@ const Editor = () => {
                         ></path>
                       </svg>
                     </span>
-                    <DateTime timeFormat={false} id="createdAt" />
+                    <DateTime timeFormat={false} value="mm/dd/yyyy" id="createdAt" />
                   </div>
                 </div>
               </div>
 
-              <div className="row">
-                <div className="col-md-6 mb-3">
-                  <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input className="form-control" id="email" type="email" placeholder="name@company.com" required />
-                  </div>
-                </div>
-                <div className="col-md-6 mb-3">
-                  <div className="form-group">
-                    <label htmlFor="phone">Phone</label>
-                    <input className="form-control" id="phone" type="number" placeholder="+12-345 678 910" required />
-                  </div>
-                </div>
-              </div>
               <h2 className="h5 my-4">Description</h2>
               <div className="row">
                 <div className="mb-3">
                   <div className="form-group">
                     <label htmlFor="address">Content</label>
-                    <CKEditor
-                      editor={ClassicEditor}
-                      data="<p>Create your post now :)</p>"
-                      onReady={(editor) => {
-                        // You can store the "editor" and use when it is needed.
-                        console.log('Editor is ready to use!', editor);
-                      }}
-                      onChange={(event, editor) => {
-                        const data = editor.getData();
-                        console.log({ event, editor, data });
-                      }}
-                      onBlur={(event, editor) => {
-                        console.log('Blur.', editor);
-                      }}
-                      onFocus={(event, editor) => {
-                        console.log('Focus.', editor);
-                      }}
+                    <TEditor
+                      initialValue="hello react editor world!"
+                      previewStyle="vertical"
+                      height="600px"
+                      initialEditType="markdown"
+                      useCommandShortcut={true}
                     />
                   </div>
                 </div>
