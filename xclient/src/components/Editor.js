@@ -4,10 +4,9 @@ import './editor.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor as TEditor } from '@toast-ui/react-editor';
 
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
 const Editor = () => {
+  const onChangeEditorContent = () => {};
+
   const postHandler = (e) => {
     e.preventDefault();
     console.log('doen');
@@ -54,6 +53,7 @@ const Editor = () => {
                       height="600px"
                       initialEditType="markdown"
                       useCommandShortcut={true}
+                      onChange={onChangeEditorContent}
                     />
                   </div>
                 </div>
