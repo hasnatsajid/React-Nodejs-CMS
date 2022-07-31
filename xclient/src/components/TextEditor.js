@@ -2,16 +2,69 @@ import React, { useRef, useState, useEffect } from 'react';
 import DateTime from 'react-datetime';
 import './editor.css';
 
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
+
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
+const options = [
+  { value: 'bootstrap', label: 'Bootstrap' },
+  { value: 'react', label: 'React' },
+  { value: 'vue', label: 'Vue' },
+  { value: 'angular', label: 'Angular' },
+  { value: 'svelte', label: 'Svelte' },
+];
+
+const customStyles = {
+  control: (provided) => ({
+    ...provided,
+    borderRadius: '.5rem',
+  }),
+
+  multiValue: (provided) => ({
+    ...provided,
+    borderRadius: '.5rem',
+  }),
+
+  multiValueRemove: (provided) => ({
+    ...provided,
+    borderRadius: '.5rem',
+  }),
+
+  placeholder: (provided) => ({
+    ...provided,
+    borderRadius: '.5rem',
+  }),
+
+  singleValue: (provided, state) => {
+    const opacity = state.isDisabled ? 0.5 : 1;
+    const transition = 'opacity 300ms';
+
+    return {
+      ...provided,
+      opacity,
+      transition,
+    };
+  },
+};
+
+const animatedComponents = makeAnimated();
+
 const TextEditor = () => {
+  const [selectedOption, setSelectedOption] = useState(null);
   const [text, setText] = useState('');
 
   const postSubmitHandler = (e) => {
     e.preventDefault();
-    console.log('doen');
+    console.log(text, selectedOption);
   };
+
+  // const onSelectChange = (e) => {
+  //   console.log(e.target);
+  //   console.log(selectValue);
+  // };
+
   return (
     <>
       <div className="row mt-5">
@@ -22,23 +75,46 @@ const TextEditor = () => {
               <div className="row">
                 <div className="col-md-6 mb-3">
                   <div>
+                    <label htmlFor="first_name">Title</label>
+                    <input className="form-control" id="first_name" type="text" placeholder="Enter post's category" required />
+                  </div>
+                </div>
+                <div className="col-md-6 mb-3">
+                  <div>
+                    <label htmlFor="first_name">Cover Image</label>
+                    <input className="form-control" id="first_name" type="text" placeholder="Enter cover image" required />
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-6 mb-3">
+                  <div>
                     <label htmlFor="first_name">Category</label>
                     <input className="form-control" id="first_name" type="text" placeholder="Enter post's category" required />
                   </div>
                 </div>
                 <div className="col-md-6 mb-3">
-                  <label htmlFor="birthday">Date</label>
-                  <div className="input-group">
-                    <span className="input-group-text">
-                      <svg className="icon icon-xs" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          fillRule="evenodd"
-                          d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                          clipRule="evenodd"
-                        ></path>
-                      </svg>
-                    </span>
-                    <DateTime timeFormat={false} value="mm/dd/yyyy" id="createdAt" />
+                  <div>
+                    <label htmlFor="first_name">Tags</label>
+                    {/* <Select options={options} /> */}
+                    <Select
+                      defaultValue={selectedOption}
+                      closeMenuOnSelect={false}
+                      components={animatedComponents}
+                      isMulti
+                      options={options}
+                      styles={customStyles}
+                      theme={(theme) => ({
+                        ...theme,
+                        borderRadius: 0,
+                        colors: {
+                          ...theme.colors,
+                          primary25: '#61DAFB',
+                          primary: '#61DAFB',
+                        },
+                      })}
+                      onChange={setSelectedOption}
+                    />
                   </div>
                 </div>
               </div>
@@ -47,17 +123,17 @@ const TextEditor = () => {
               <div className="row">
                 <div className="mb-3">
                   <div className="form-group">
-                    <label htmlFor="address">Content</label>
+                    {/* <label htmlFor="address">Content</label> */}
                     <CKEditor
                       editor={ClassicEditor}
                       data="<p>Hello from Hassuu!</p>"
                       onReady={(editor) => {
                         // You can store the "editor" and use when it is needed.
-                        console.log('Editor is ready to use!', editor);
+                        // console.log('Editor is ready to use!', editor);
                       }}
                       onChange={(event, editor) => {
                         const data = editor.getData();
-                        console.log({ event, editor, data });
+                        // console.log({ event, editor, data });
                         setText(data);
                       }}
                       onBlur={(event, editor) => {

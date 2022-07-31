@@ -1,13 +1,13 @@
-function getAllPosts(req, res) {
+function httpGetAllPosts(req, res) {
   return res.status(200).json({ post: 'milk' });
 }
 
-function createNewPost(req, res) {
+function httpCreateNewPost(req, res) {
   const post = req.body;
-  console.log('Req body: ' + post);
+  return res.status(200).json(post);
 }
 
 module.exports = {
-  getAllPosts,
-  createNewPost,
+  httpGetAllPosts,
+  httpCreateNewPost,
 };

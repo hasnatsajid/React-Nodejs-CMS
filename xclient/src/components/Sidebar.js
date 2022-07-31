@@ -4,6 +4,7 @@ import { useLocation, Link } from 'react-router-dom';
 import Logo from '../assets/img/brand/light.svg';
 
 const Sidebar = () => {
+  const [navbarActive, setNavbarActive] = useState(false);
   const [tables, setTables] = useState(true);
   const [posts, setPosts] = useState(true);
   const [components, setComponents] = useState(true);
@@ -13,6 +14,10 @@ const Sidebar = () => {
     setTables(!tables);
     setComponents(true);
     setPosts(true);
+  };
+
+  const toggleNavbar = () => {
+    setNavbarActive((prev) => !prev);
   };
 
   const togglePosts = () => {
@@ -51,24 +56,25 @@ const Sidebar = () => {
         </Link>
         <div className="d-flex align-items-center">
           <button
-            className="navbar-toggler d-lg-none collapsed"
+            className={`navbar-toggler d-lg-none ${navbarActive ? '' : 'collapsed'}`}
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#sidebarMenu"
             aria-controls="sidebarMenu"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-label="Toggle navigation"
+            onClick={toggleNavbar}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
         </div>
       </nav>
-      <nav id="sidebarMenu" className="sidebar d-lg-block bg-gray-800 text-white collapse">
+      <nav id="sidebarMenu" className={`sidebar d-lg-block bg-gray-800 text-white collapse ${navbarActive ? 'show' : ''}`}>
         <div className="sidebar-inner px-4 pt-3">
           <div className="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
             <div className="d-flex align-items-center">
               <div className="avatar-lg me-4">
-                <img src="./assets/img/team/profile-picture-3.jpg" className="card-img-top rounded-circle border-white" alt="Bonnie Green" />
+                <img src="../assets/img/team/profile-picture-3.jpg" className="card-img-top rounded-circle border-white" alt="Bonnie Green" />
               </div>
               <div className="d-block">
                 <h2 className="h5 mb-3">Hi, Jane</h2>
@@ -86,7 +92,15 @@ const Sidebar = () => {
               </div>
             </div>
             <div className="collapse-close d-md-none">
-              <Link to="#sidebarMenu" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-label="Toggle navigation">
+              <Link
+                className={navbarActive ? '' : 'collapse'}
+                to="#sidebarMenu"
+                data-bs-toggle="collapse"
+                data-bs-target="#sidebarMenu"
+                aria-controls="sidebarMenu"
+                aria-label="Toggle navigation"
+                onClick={toggleNavbar}
+              >
                 <svg className="icon icon-xs" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path
                     fillRule="evenodd"
