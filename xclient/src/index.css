@@ -23524,7 +23524,10 @@ fieldset:disabled .btn {
 }
 
 @media (max-width: 768px) {
-  max-width: 100%;
+  
+  .sidebar .nav-item{
+    max-width: 100%;
+  }
 }
 
 .sidebar .nav-item.active > .nav-link {

@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 
+import ProfilePic1 from '../assets/img/team/profile-picture-1.jpg';
+import ProfilePic2 from '../assets/img/team/profile-picture-2.jpg';
+import ProfilePic3 from '../assets/img/team/profile-picture-3.jpg';
+import ProfilePic4 from '../assets/img/team/profile-picture-4.jpg';
+import ProfilePic5 from '../assets/img/team/profile-picture-5.jpg';
+
 import Logo from '../assets/img/brand/light.svg';
 
 const Sidebar = () => {
@@ -19,6 +25,10 @@ const Sidebar = () => {
   const toggleNavbar = () => {
     setNavbarActive((prev) => !prev);
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
 
   const togglePosts = () => {
     setPosts(!posts);
@@ -51,8 +61,8 @@ const Sidebar = () => {
     <>
       <nav className="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
         <Link className="navbar-brand me-lg-5" to="/">
-          <img className="navbar-brand-dark" src="../../assets/img/brand/light.svg" alt="hassuu" />
-          <img className="navbar-brand-light" src="../../assets/img/brand/dark.svg" alt="hassuu" />
+          <img className="navbar-brand-dark" src={Logo} alt="hassuu" />
+          <img className="navbar-brand-light" src="../assets/img/brand/dark.svg" alt="hassuu" />
         </Link>
         <div className="d-flex align-items-center">
           <button
@@ -74,7 +84,7 @@ const Sidebar = () => {
           <div className="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
             <div className="d-flex align-items-center">
               <div className="avatar-lg me-4">
-                <img src="../assets/img/team/profile-picture-3.jpg" className="card-img-top rounded-circle border-white" alt="Bonnie Green" />
+                <img src={ProfilePic3} className="card-img-top rounded-circle border-white" alt="Bonnie Green" />
               </div>
               <div className="d-block">
                 <h2 className="h5 mb-3">Hi, Jane</h2>
@@ -121,7 +131,7 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className={pathname === '/' ? 'nav-item active' : 'nav-item'}>
-              <Link to="/" className="nav-link">
+              <Link to="/" className="nav-link" onClick={navbarActive && toggleNavbar}>
                 <span className="sidebar-icon">
                   <svg className="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
@@ -165,7 +175,7 @@ const Sidebar = () => {
               <div className={`multi-level ${posts ? 'collapse' : ''}`} role="list" id="submenu-app">
                 <ul className="flex-column nav">
                   <li className={pathname.includes('posts') ? 'nav-item active' : 'nav-item'}>
-                    <Link className="nav-link" to="/posts/new">
+                    <Link className="nav-link" to="/posts/new" onClick={navbarActive && toggleNavbar}>
                       <span className="sidebar-text">New</span>
                     </Link>
                   </li>
@@ -194,7 +204,7 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className={pathname.includes('transactions') ? 'nav-item active' : 'nav-item'}>
-              <Link to="/transactions" className="nav-link">
+              <Link to="/transactions" className="nav-link" onClick={navbarActive && toggleNavbar}>
                 <span className="sidebar-icon">
                   <svg className="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
@@ -210,7 +220,7 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className={pathname.includes('settings') ? 'nav-item active' : 'nav-item'}>
-              <Link to="/settings" className="nav-link">
+              <Link to="/settings" className="nav-link" onClick={navbarActive && toggleNavbar}>
                 <span className="sidebar-icon">
                   <svg className="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -307,7 +317,7 @@ const Sidebar = () => {
               <div className={`multi-level ${tables ? 'collapse' : ''}`} role="list" id="submenu-app">
                 <ul className="flex-column nav">
                   <li className={pathname.includes('tables') ? 'nav-item active' : 'nav-item'}>
-                    <Link className="nav-link" to="/bootstrap-tables">
+                    <Link className="nav-link" to="/bootstrap-tables" onClick={navbarActive && toggleNavbar}>
                       <span className="sidebar-text">Bootstrap Tables</span>
                     </Link>
                   </li>
@@ -349,27 +359,27 @@ const Sidebar = () => {
               <div className={`multi-level ${components ? 'collapse' : ''}`} role="list" id="submenu-components">
                 <ul className="flex-column nav">
                   <li className={pathname.includes('buttons') ? 'nav-item active' : 'nav-item'}>
-                    <Link className="nav-link" to="/component/buttons">
+                    <Link className="nav-link" to="/component/buttons" onClick={navbarActive && toggleNavbar}>
                       <span className="sidebar-text">Buttons</span>
                     </Link>
                   </li>
                   <li className={pathname.includes('notifications') ? 'nav-item active' : 'nav-item'}>
-                    <Link className="nav-link" to="/component/notifications">
+                    <Link className="nav-link" to="/component/notifications" onClick={navbarActive && toggleNavbar}>
                       <span className="sidebar-text">Notifications</span>
                     </Link>
                   </li>
                   <li className={pathname.includes('forms') ? 'nav-item active' : 'nav-item'}>
-                    <Link className="nav-link" to="/component/forms">
+                    <Link className="nav-link" to="/component/forms" onClick={navbarActive && toggleNavbar}>
                       <span className="sidebar-text">Forms</span>
                     </Link>
                   </li>
                   <li className={pathname.includes('modals') ? 'nav-item active' : 'nav-item'}>
-                    <Link className="nav-link" to="/component/modals">
+                    <Link className="nav-link" to="/component/modals" onClick={navbarActive && toggleNavbar}>
                       <span className="sidebar-text">Modals</span>
                     </Link>
                   </li>
                   <li className={pathname.includes('typography') ? 'nav-item active' : 'nav-item'}>
-                    <Link className="nav-link" to="/component/typography">
+                    <Link className="nav-link" to="/component/typography" onClick={navbarActive && toggleNavbar}>
                       <span className="sidebar-text">Typography</span>
                     </Link>
                   </li>
