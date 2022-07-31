@@ -6,13 +6,9 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const TextEditor = () => {
-  // const [text, setText] = useState({ text: '' });
+  const [text, setText] = useState('');
 
-  const handleChange = (value) => {
-    // setText({ text: value });
-  };
-
-  const postHandler = (e) => {
+  const postSubmitHandler = (e) => {
     e.preventDefault();
     console.log('doen');
   };
@@ -22,7 +18,7 @@ const TextEditor = () => {
         <div className="col-12 col-xl-8">
           <div className="card card-body border-0 shadow mb-4">
             <h2 className="h5 mb-4">Post information</h2>
-            <form onSubmit={postHandler}>
+            <form onSubmit={postSubmitHandler}>
               <div className="row">
                 <div className="col-md-6 mb-3">
                   <div>
@@ -54,7 +50,7 @@ const TextEditor = () => {
                     <label htmlFor="address">Content</label>
                     <CKEditor
                       editor={ClassicEditor}
-                      data="<p>Hello from CKEditor 5!</p>"
+                      data="<p>Hello from Hassuu!</p>"
                       onReady={(editor) => {
                         // You can store the "editor" and use when it is needed.
                         console.log('Editor is ready to use!', editor);
@@ -62,12 +58,13 @@ const TextEditor = () => {
                       onChange={(event, editor) => {
                         const data = editor.getData();
                         console.log({ event, editor, data });
+                        setText(data);
                       }}
                       onBlur={(event, editor) => {
-                        console.log('Blur.', editor);
+                        // console.log('Blur.', editor);
                       }}
                       onFocus={(event, editor) => {
-                        console.log('Focus.', editor);
+                        // console.log('Focus.', editor);
                       }}
                     />
                   </div>
