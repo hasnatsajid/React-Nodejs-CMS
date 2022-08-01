@@ -316,9 +316,14 @@ const Sidebar = () => {
               </span>
               <div className={`multi-level ${tables ? 'collapse' : ''}`} role="list" id="submenu-app">
                 <ul className="flex-column nav">
-                  <li className={pathname.includes('tables') ? 'nav-item active' : 'nav-item'}>
+                  <li className={pathname.includes('bootstrap-tables') ? 'nav-item active' : 'nav-item'}>
                     <Link className="nav-link" to="/bootstrap-tables" onClick={navbarActive && toggleNavbar}>
                       <span className="sidebar-text">Bootstrap Tables</span>
+                    </Link>
+                  </li>
+                  <li className={pathname.includes('data-tables') ? 'nav-item active' : 'nav-item'}>
+                    <Link className="nav-link" to="/data-tables" onClick={navbarActive && toggleNavbar}>
+                      <span className="sidebar-text">Data Tables</span>
                     </Link>
                   </li>
                 </ul>

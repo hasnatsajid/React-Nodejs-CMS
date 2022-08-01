@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import ProfilePic1 from '../assets/img/team/profile-picture-1.jpg';
 import ProfilePic2 from '../assets/img/team/profile-picture-2.jpg';
 import ProfilePic3 from '../assets/img/team/profile-picture-3.jpg';
@@ -5,6 +6,17 @@ import ProfilePic4 from '../assets/img/team/profile-picture-4.jpg';
 import ProfilePic5 from '../assets/img/team/profile-picture-5.jpg';
 
 const Overview = () => {
+  const [bellActive, setBellActive] = useState(false);
+  const [profileLinkActive, setProfileLinkActive] = useState(false);
+
+  const toggleNotificationBell = () => {
+    setBellActive((prev) => !prev);
+  };
+
+  const toggleProfileLink = () => {
+    setProfileLinkActive((prev) => !prev);
+  };
+
   return (
     <>
       <nav className="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
@@ -46,19 +58,20 @@ const Overview = () => {
             <ul className="navbar-nav align-items-center">
               <li className="nav-item dropdown">
                 <a
-                  className="nav-link text-dark notification-bell unread dropdown-toggle"
+                  className={`nav-link text-dark notification-bell unread dropdown-toggle ${bellActive ? 'show' : ''}`}
                   data-unread-notifications="true"
                   href="/#"
                   role="button"
                   data-bs-toggle="dropdown"
                   data-bs-display="static"
-                  aria-expanded="false"
+                  aria-expanded="true"
+                  onClick={toggleNotificationBell}
                 >
                   <svg className="icon icon-sm text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path>
                   </svg>
                 </a>
-                <div className="dropdown-menu dropdown-menu-lg dropdown-menu-center mt-2 py-0">
+                <div className={`dropdown-menu dropdown-menu-lg dropdown-menu-center mt-2 py-0 ${bellActive ? 'show' : ''}`}>
                   <div className="list-group list-group-flush">
                     <a href="/#" className="text-center text-primary fw-bold border-bottom border-light py-3">
                       Notifications
@@ -173,7 +186,14 @@ const Overview = () => {
                 </div>
               </li>
               <li className="nav-item dropdown ms-lg-3">
-                <a className="nav-link dropdown-toggle pt-1 px-0" href="/#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a
+                  className={`nav-link dropdown-toggle pt-1 px-0 ${profileLinkActive ? 'show' : ''}`}
+                  href="/#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  onClick={toggleProfileLink}
+                >
                   <div className="media d-flex align-items-center">
                     <img className="avatar rounded-circle" alt="pretty" src={ProfilePic3} />
                     <div className="media-body ms-2 text-dark align-items-center d-none d-lg-block">
@@ -181,7 +201,7 @@ const Overview = () => {
                     </div>
                   </div>
                 </a>
-                <div className="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-1">
+                <div className={`dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-1 ${profileLinkActive ? 'show' : ''}`}>
                   <a className="dropdown-item d-flex align-items-center" href="/#">
                     <svg className="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -1114,7 +1134,7 @@ const Overview = () => {
           </div>
         </div>
       </div>
-      <div className="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">
+      <div className="card theme-settings bg-gray-800 theme-settings-expand show" id="theme-settings-expand">
         <div className="card-body bg-gray-800 text-white rounded-top p-3 py-2">
           <span className="fw-bold d-inline-flex align-items-center h6">
             <svg className="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

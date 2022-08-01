@@ -11,6 +11,7 @@ import Sidebar from './components/Sidebar';
 import Tables from './components/Tables';
 import Transactions from './components/Transactions';
 import Typography from './components/Typography';
+import DataTables from './components/DataTables';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/bootstrap-tables" element={<Tables />} />
+          <Route path="/data-tables" element={<DataTables />} />
           <Route path="/component/buttons" element={<Buttons />} />
           <Route path="/component/notifications" element={<Notifications />} />
           <Route path="/component/forms" element={<Forms />} />
